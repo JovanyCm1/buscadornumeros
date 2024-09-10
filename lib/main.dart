@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 void main() {
   runApp(const MyApp());
@@ -34,6 +35,7 @@ class _NumberSearcherState extends State<NumberSearcher> {
   int upperLimit = 100;
   int currentNumber = 50;
   int buttonPressCount = 0;
+  int maxAttempts = 0;
 
   void _incrementNumber() {
     setState(() {
@@ -61,6 +63,7 @@ class _NumberSearcherState extends State<NumberSearcher> {
       upperLimit = int.tryParse(_upperLimitController.text) ?? 100;
       currentNumber = (lowerLimit + upperLimit) ~/ 2;
       buttonPressCount = 0;
+      maxAttempts = (log(upperLimit - lowerLimit + 1) / log(2)).ceil();
     });
   }
 
@@ -104,6 +107,11 @@ class _NumberSearcherState extends State<NumberSearcher> {
             ElevatedButton(
               onPressed: _setLimits,
               child: const Text('Establecer Límites'),
+            ),
+            const SizedBox(height: 20),
+            Text(
+              'Adivinaré tu número en menos de: $maxAttempts intentos',
+              style: Theme.of(context).textTheme.headlineSmall,
             ),
             const SizedBox(height: 20),
             Text(

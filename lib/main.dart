@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Number Searcher',
+      title: 'Buscador de numeros desarrollado por Jaime Carrizalez',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -78,7 +78,8 @@ class _NumberSearcherState extends State<NumberSearcher> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Number Searcher'),
+        title:
+            const Text('Buscador de numeros desarrollado por Jaime Carrizalez'),
       ),
       body: Center(
         child: Column(
